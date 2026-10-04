@@ -7,11 +7,13 @@ import Navbar from "./components/Navbar";
 import AuthProvider from "./context/AuthContext";
 import { BrowserRouter } from "react-router-dom";
 import ProductDetails from "./pages/productDetails";
+import CartProvider from "./context/CartContext";
 
 function App(){
     return(
         // <>
         <AuthProvider>
+            <CartProvider>
             <div className="app">
                 <Navbar />
                 <Routes>
@@ -22,6 +24,7 @@ function App(){
                     <Route path='*' element={<h1>404 Page Not found</h1>} />
                 </Routes>
             </div>
+            </CartProvider>
         </AuthProvider>
         // </>
     )
