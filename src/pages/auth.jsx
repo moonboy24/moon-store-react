@@ -7,7 +7,7 @@ export default function Auth() {
     const [mode , setMode] = useState("Signup");
     const [error , setError] = useState(null);
     const navigate = useNavigate();
-    const {signUp , user , logout , login} = useContext(AuthContext);
+    const {signUp , login} = useContext(AuthContext);
 
     const {register, handleSubmit , formState: {errors}} = useForm();
 
@@ -28,7 +28,7 @@ export default function Auth() {
       else{
         setError(result.error)
       }
-      console.log(result)
+      // console.log(result)
     }
 
   return (
@@ -38,8 +38,8 @@ export default function Auth() {
           
           <h1 className="page-title">{mode === "Signup" ? "Sign Up" : "Login"}</h1>
 
-          {user && <p style={{color: "red"}}>User Logged in : {user.email}</p>}
-          <button onClick={() => logout()}>Log Out</button>
+          {/* {user && <p style={{color: "red"}}>User Logged in : {user.email}</p>}
+          <button onClick={() => logout()}>Log Out</button> */}
 
           <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
 
