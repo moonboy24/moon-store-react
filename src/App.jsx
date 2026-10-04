@@ -4,18 +4,24 @@ import Home from "./pages/home";
 import Auth from "./pages/auth";
 import Checkout from "./pages/checkout";
 import Navbar from "./components/Navbar";
+import AuthProvider from "./context/AuthContext";
+import { BrowserRouter } from "react-router-dom";
 
 function App(){
     return(
-        <>
-            <Navbar />
-            <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/auth' element={<Auth />} />
-                <Route path='/checkout' element={<Checkout />} />
-                <Route path='*' element={<h1>404 Page Not found</h1>} />
-            </Routes>
-        </>
+        // <>
+        <AuthProvider>
+            <div className="app">
+                <Navbar />
+                <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/auth' element={<Auth />} />
+                    <Route path='/checkout' element={<Checkout />} />
+                    <Route path='*' element={<h1>404 Page Not found</h1>} />
+                </Routes>
+            </div>
+        </AuthProvider>
+        // </>
     )
 }
 
